@@ -7,4 +7,4 @@ Second projet d'analyse de données dans le cadre de la formation THP
 ## Logiciels utilisés
 
 - SQLite
-- Lucidchart
+- Draw.io aka diagrams.net 
