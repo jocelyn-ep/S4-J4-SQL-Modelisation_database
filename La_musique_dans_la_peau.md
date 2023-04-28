@@ -15,12 +15,12 @@ _Rédige les requêtes SQL permettant d'obtenir les informations ci-dessous. Con
 
 - **Récupérer tous les albums**
 
-SELECT * FROM albums : pour avoir la table album
+SELECT * FROM albums : pour avoir la table album  
 SELECT Title FROM albums : pour avoir uniquement la colonne des noms d'album
 
 - **Récupérer tous les albums dont le titre contient "Great"**
 
-SELECT * FROM albums WHERE Title LIKE '%Great%' : pour avoir la liste des album contenant "Great" et "Greatest"
+SELECT * FROM albums WHERE Title LIKE '%Great%' : pour avoir la liste des album contenant "Great" et "Greatest"  
 SELECT * FROM albums WHERE (Title LIKE '%Great%') AND (Title NOT LIKE '%Greatest%') : pour avoir la liste des album contenant uniquement "Great"
 
 - **Donner le nombre total d'albums contenus dans la base (sans regarder les id bien sûr)**
@@ -59,21 +59,21 @@ SELECT SUM(t.UnitPrice) AS 'Discography cost' FROM albums al, tracks t, artists 
 
 On utilise une table d'association et 2 jointuures pour parvenir au résultat souhaité. Sur plusieurs lignes cela donne :
 
-SELECT SUM(t.UnitPrice) AS 'Discography cost'
-FROM albums al,
-tracks t,
-artists ar
-WHERE t.AlbumId = al.AlbumId
-AND al.ArtistId = ar.ArtistId
-AND ar.Name = 'Deep Purple'
+SELECT SUM(t.UnitPrice) AS 'Discography cost'  
+FROM albums al,  
+tracks t,  
+artists ar  
+WHERE t.AlbumId = al.AlbumId  
+AND al.ArtistId = ar.ArtistId  
+AND ar.Name = 'Deep Purple'  
 
 - **Créer l'album de ton artiste favori en base, en renseignant correctement les trois tables albums, artists et tracks**
 
-INSERT INTO artists (Name) VALUES('Kasabian');
-INSERT INTO albums (Title, ArtistId) VALUES ('Kasabian', '276');
-INSERT INTO tracks (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)
-VALUES ('Club Foot', '348', '1', '4', 'Kasabian', '214000', '500', '0.99'),
-('Processed Beats', '348', '1', '4', 'Kasabian', '187000', '500', '0.99'),
-('Reason Is Treason', '348', '1', '4', 'Kasabian', '275000', '500', '0.99');
+INSERT INTO artists (Name) VALUES('Kasabian');  
+INSERT INTO albums (Title, ArtistId) VALUES ('Kasabian', '276');  
+INSERT INTO tracks (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)  
+VALUES ('Club Foot', '348', '1', '4', 'Kasabian', '214000', '500', '0.99'),  
+('Processed Beats', '348', '1', '4', 'Kasabian', '187000', '500', '0.99'),  
+('Reason Is Treason', '348', '1', '4', 'Kasabian', '275000', '500', '0.99');  
 
 etc pour les 9 autres titres 
